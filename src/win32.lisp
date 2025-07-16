@@ -1735,6 +1735,32 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 (defwin32constant +dt-metafile+         5)   ; Metafile, VDM
 (defwin32constant +dt-dispfile+         6)   ; Display-file
 
+;;; DrawText Format Constants
+(defwin32constant +dt-top+              #x00000000)
+(defwin32constant +dt-left+             #x00000000)
+(defwin32constant +dt-center+           #x00000001)
+(defwin32constant +dt-right+            #x00000002)
+(defwin32constant +dt-vcenter+          #x00000004)
+(defwin32constant +dt-bottom+           #x00000008)
+(defwin32constant +dt-wordbreak+        #x00000010)
+(defwin32constant +dt-singleline+       #x00000020)
+(defwin32constant +dt-expandtabs+       #x00000040)
+(defwin32constant +dt-tabstop+          #x00000080)
+(defwin32constant +dt-noclip+           #x00000100)
+(defwin32constant +dt-externalleading+  #x00000200)
+(defwin32constant +dt-calcrect+         #x00000400)
+(defwin32constant +dt-noprefix+         #x00000800)
+(defwin32constant +dt-internal+         #x00001000)
+(defwin32constant +dt-editcontrol+      #x00002000)
+(defwin32constant +dt-path-ellipsis+    #x00004000)
+(defwin32constant +dt-end-ellipsis+     #x00008000)
+(defwin32constant +dt-modifystring+     #x00010000)
+(defwin32constant +dt-rtlreading+       #x00020000)
+(defwin32constant +dt-word-ellipsis+    #x00040000)
+(defwin32constant +dt-nofullwidthcharbreak+ #x00080000)
+(defwin32constant +dt-hideprefix+       #x00100000)
+(defwin32constant +dt-prefixonly+       #x00200000)
+
 ;;; Curve Capabilities
 (defwin32constant +cc-none+             0)   ; Curves not supported
 (defwin32constant +cc-circles+          1)   ; Can do circles
@@ -8110,6 +8136,17 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (time-zone-information (:pointer dynamic-time-zone-information))
   (universal-time (:pointer systemtime))
   (local-time (:pointer systemtime)))
+
+(defwin32fun ("SetTextColor" set-text-color gdi32) colorref
+  (hdc hdc)
+  (color colorref))
+
+(defwin32fun ("DrawTextW" draw-text user32) int
+  (hdc hdc)
+  (string lpcwstr)
+  (c :int)
+  (rect (:pointer rect))
+  (dt-format uint))
 
 (defwin32fun ("TextOutW" text-out gdi32) bool
   (hdc hdc)
