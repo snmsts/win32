@@ -6258,6 +6258,13 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (position uint)
   (flags uint))
 
+(defwin32fun ("DrawMenuBar" draw-menu-bar user32) bool
+  (hwnd hwnd))
+
+(defwin32fun ("GetSystemMenu" get-system-menu user32) hmenu
+  (hwnd hwnd)
+  (revert bool))
+
 (defwin32fun ("DeleteObject" delete-object gdi32) bool
   (object hgdiobj))
 
