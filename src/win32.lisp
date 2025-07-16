@@ -6265,6 +6265,10 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (hwnd hwnd)
   (revert bool))
 
+(defwin32fun ("GetDlgItem" get-dlg-item user32) hwnd
+  (hdlg hwnd)
+  (id :int))
+
 (defwin32fun ("DeleteObject" delete-object gdi32) bool
   (object hgdiobj))
 
