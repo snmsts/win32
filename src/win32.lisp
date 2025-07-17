@@ -8392,3 +8392,19 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 (defwin32-lispfun zero-memory (destination length)
   (dotimes (i length)
     (setf (cffi:mem-aref destination :uint8 i) 0)))
+
+;; Dialog control functions
+(defwin32fun ("SetDlgItemTextW" set-dlg-item-text user32) bool
+  (hdlg hwnd)
+  (id :int)
+  (string lpcwstr))
+
+(defwin32fun ("GetDlgItemTextW" get-dlg-item-text user32) uint
+  (hdlg hwnd)
+  (id :int)
+  (string lpwstr)
+  (max-count :int))
+
+(defwin32fun ("IsDlgButtonChecked" is-dlg-button-checked user32) uint
+  (hdlg hwnd)
+  (id :int))
