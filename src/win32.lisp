@@ -8408,3 +8408,65 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 (defwin32fun ("IsDlgButtonChecked" is-dlg-button-checked user32) uint
   (hdlg hwnd)
   (id :int))
+
+;; Listbox control constants
+(defwin32constant +lbs-notify+ #x0001)
+(defwin32constant +lbs-sort+ #x0002)
+(defwin32constant +lbs-nointegralheight+ #x0100)
+(defwin32constant +lbs-hasstrings+ #x0040)
+(defwin32constant +lbs-usetabstops+ #x0080)
+(defwin32constant +lbs-multiplesel+ #x0008)
+
+;; Listbox messages
+(defwin32constant +lb-addstring+ #x0180)
+(defwin32constant +lb-insertstring+ #x0181)
+(defwin32constant +lb-setcursel+ #x0186)
+(defwin32constant +lb-getcursel+ #x0188)
+
+;; Combobox control constants
+(defwin32constant +cbs-simple+ #x0001)
+(defwin32constant +cbs-dropdown+ #x0002)
+(defwin32constant +cbs-sort+ #x0100)
+(defwin32constant +cbs-dropdownlist+ #x0003)
+(defwin32constant +cbs-hasstrings+ #x0200)
+(defwin32constant +cbs-autohscroll+ #x0040)
+
+;; Combobox messages
+(defwin32constant +cb-insertstring+ #x014A)
+(defwin32constant +cb-setcursel+ #x014E)
+(defwin32constant +cb-getcursel+ #x0147)
+
+;; Scrollbar control constants
+(defwin32constant +sbs-horz+ #x0000)
+(defwin32constant +sbs-vert+ #x0001)
+(defwin32constant +sbs-topalign+ #x0002)
+(defwin32constant +sbs-leftalign+ #x0002)
+(defwin32constant +sbs-rightalign+ #x0004)
+(defwin32constant +sbs-bottomalign+ #x0004)
+(defwin32constant +sbs-sizebox+ #x0008)
+(defwin32constant +sb-ctl+ 2)
+
+;; Scrollbar action constants
+(defwin32constant +sb-lineleft+ 0)
+(defwin32constant +sb-lineright+ 1)
+(defwin32constant +sb-pageleft+ 2)
+(defwin32constant +sb-pageright+ 3)
+(defwin32constant +sb-thumbtrack+ 5)
+
+;; Scrollbar functions
+(defwin32fun ("SetScrollRange" set-scroll-range user32) bool
+  (hwnd hwnd)
+  (bar :int)
+  (min-pos :int)
+  (max-pos :int)
+  (redraw bool))
+
+(defwin32fun ("SetScrollPos" set-scroll-pos user32) :int
+  (hwnd hwnd)
+  (bar :int)
+  (pos :int)
+  (redraw bool))
+
+(defwin32fun ("GetScrollPos" get-scroll-pos user32) :int
+  (hwnd hwnd)
+  (bar :int))
