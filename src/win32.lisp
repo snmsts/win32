@@ -8470,3 +8470,16 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 (defwin32fun ("GetScrollPos" get-scroll-pos user32) :int
   (hwnd hwnd)
   (bar :int))
+
+(defwin32fun ("EndDialog" end-dialog user32) bool
+  (hdlg hwnd)
+  (result :int))
+
+(defwin32fun ("DialogBoxIndirectParamW" dialog-box-indirect-param user32) :int
+  (hinstance hinstance)
+  (template :pointer)
+  (parent hwnd)
+  (dlgproc :pointer)
+  (init-param :pointer))
+
+(defwin32constant +gwl-hinstance+ -6)
