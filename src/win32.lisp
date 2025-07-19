@@ -1619,6 +1619,67 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 
 (defwin32constant +clr-invalid+     #xFFFFFFFF)
 
+;;; Font Weight Constants
+(defwin32constant +fw-dontcare+     0)
+(defwin32constant +fw-thin+         100)
+(defwin32constant +fw-extralight+   200)
+(defwin32constant +fw-ultralight+   200)
+(defwin32constant +fw-light+        300)
+(defwin32constant +fw-normal+       400)
+(defwin32constant +fw-regular+      400)
+(defwin32constant +fw-medium+       500)
+(defwin32constant +fw-semibold+     600)
+(defwin32constant +fw-demibold+     600)
+(defwin32constant +fw-bold+         700)
+(defwin32constant +fw-extrabold+    800)
+(defwin32constant +fw-ultrabold+    800)
+(defwin32constant +fw-black+        900)
+(defwin32constant +fw-heavy+        900)
+
+;;; Character Set Constants
+(defwin32constant +ansi-charset+        0)
+(defwin32constant +default-charset+     1)
+(defwin32constant +symbol-charset+      2)
+(defwin32constant +shiftjis-charset+    128)
+(defwin32constant +hangeul-charset+     129)
+(defwin32constant +hangul-charset+      129)
+(defwin32constant +gb2312-charset+      134)
+(defwin32constant +chinesebig5-charset+ 136)
+
+;;; Output Precision Constants
+(defwin32constant +out-default-precis+     0)
+(defwin32constant +out-string-precis+      1)
+(defwin32constant +out-character-precis+   2)
+(defwin32constant +out-stroke-precis+      3)
+(defwin32constant +out-tt-precis+          4)
+(defwin32constant +out-device-precis+      5)
+(defwin32constant +out-raster-precis+      6)
+(defwin32constant +out-tt-only-precis+     7)
+(defwin32constant +out-outline-precis+     8)
+
+;;; Clip Precision Constants
+(defwin32constant +clip-default-precis+      0)
+(defwin32constant +clip-character-precis+    1)
+(defwin32constant +clip-stroke-precis+       2)
+
+;;; Quality Constants
+(defwin32constant +default-quality+     0)
+(defwin32constant +draft-quality+       1)
+(defwin32constant +proof-quality+       2)
+
+;;; Font Pitch Constants
+(defwin32constant +default-pitch+       0)
+(defwin32constant +fixed-pitch+         1)
+(defwin32constant +variable-pitch+      2)
+
+;;; Font Family Constants
+(defwin32constant +ff-dontcare+         #x00)
+(defwin32constant +ff-roman+            #x10)
+(defwin32constant +ff-swiss+            #x20)
+(defwin32constant +ff-modern+           #x30)
+(defwin32constant +ff-script+           #x40)
+(defwin32constant +ff-decorative+       #x50)
+
 ;;; Brush Styles
 (defwin32constant +bs-solid+            0)
 (defwin32constant +bs-null+             1)
