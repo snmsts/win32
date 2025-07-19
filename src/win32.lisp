@@ -8543,4 +8543,11 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (dlgproc :pointer)
   (init-param :pointer))
 
+(defwin32fun ("CreateDialogIndirectParamW" create-dialog-indirect-param user32) hwnd
+  (h-instance hinstance)
+  (dlg-template :pointer)
+  (h-wnd-parent hwnd)
+  (dlg-proc :pointer)
+  (dw-init-param lparam))
+
 (defwin32constant +gwl-hinstance+ -6)
