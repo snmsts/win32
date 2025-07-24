@@ -6982,7 +6982,7 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (index :int))
 
 #+64-bit
-(defwin32fun ("GetWindowLongW" get-window-long-ptr user32) long-ptr
+(defwin32fun ("GetWindowLongPtrW" get-window-long-ptr user32) long-ptr
   (hwnd hwnd)
   (index :int))
 
@@ -8053,7 +8053,7 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (new-long long-ptr))
 
 #+64-bit
-(defwin32fun ("SetWindowLongW" set-window-long-ptr user32) long-ptr
+(defwin32fun ("SetWindowLongPtrW" set-window-long-ptr user32) long-ptr
   (hwnd hwnd)
   (index :int)
   (new-long long-ptr))
