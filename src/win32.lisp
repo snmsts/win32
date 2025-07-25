@@ -8620,3 +8620,13 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (hdc hdc)
   (rc-item rect)
   (item-data dword))
+
+;; Accelerator functions (Chapter 43)
+(defwin32fun ("LoadAcceleratorsW" load-accelerators user32) haccel
+  (hinstance hinstance)
+  (table-name :pointer))
+
+(defwin32fun ("TranslateAcceleratorW" translate-accelerator user32) :int
+  (hwnd hwnd)
+  (haccel haccel)
+  (msg :pointer))
