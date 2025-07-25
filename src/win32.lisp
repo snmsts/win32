@@ -8607,3 +8607,16 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 (defwin32constant +stc4+ #x0443)
 (defwin32constant +grp1+ #x0430)
 (defwin32constant +grp2+ #x0431)
+
+;; Owner Draw Support
+
+(defwin32struct drawitemstruct
+  (ctl-type uint)
+  (ctl-id uint)
+  (item-id uint)
+  (item-action uint)
+  (item-state uint)
+  (hwnd-item hwnd)
+  (hdc hdc)
+  (rc-item rect)
+  (item-data dword))
