@@ -5957,6 +5957,16 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (src2 hrgn)
   (mode :int))
 
+(defwin32fun ("CreateMetaFileW" create-meta-file gdi32) hdc
+  (filename lpwstr))
+
+(defwin32fun ("DeleteMetaFile" delete-meta-file gdi32) bool
+  (hmf hmetafile))
+
+(defwin32fun ("PlayMetaFile" play-meta-file gdi32) bool
+  (hdc hdc)
+  (hmf hmetafile))
+
 (defwin32fun ("CreateEllipticRgn" create-elliptic-rgn gdi32) hrgn
   (left :int)
   (top :int)
