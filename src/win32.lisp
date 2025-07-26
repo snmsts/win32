@@ -4235,6 +4235,19 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
 
 (defwin32constant +mf-end+              #x00000080) ; Obsolete -- only used by old RES files
 
+;; Owner-draw type constants
+(defwin32constant +odt-menu+            1)
+(defwin32constant +odt-listbox+         2)
+(defwin32constant +odt-combobox+        3)
+(defwin32constant +odt-button+          4)
+
+;; Owner-draw state constants
+(defwin32constant +ods-selected+        #x0001)
+(defwin32constant +ods-grayed+          #x0002)
+(defwin32constant +ods-disabled+        #x0004)
+(defwin32constant +ods-checked+         #x0008)
+(defwin32constant +ods-focus+           #x0010)
+
 (defwin32constant +mft-string+          +mf-string+)
 (defwin32constant +mft-bitmap+          +mf-bitmap+)
 (defwin32constant +mft-menubarbreak+    +mf-menubarbreak+)
@@ -4616,6 +4629,18 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (top long)
   (right long)
   (bottom long))
+
+(defwin32struct size
+  (cx :long)
+  (cy :long))
+
+(defwin32struct measureitemstruct
+  (ctltype uint)
+  (ctlid uint)
+  (itemid uint)
+  (itemwidth uint)
+  (itemheight uint)
+  (itemdata dword))
 
 (defwin32struct paletteentry
   (red byte)
@@ -8226,6 +8251,12 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (y :int)
   (string lpcwstr)
   (c :int))
+
+(defwin32fun ("GetTextExtentPoint32W" get-text-extent-point32 gdi32) bool
+  (hdc hdc)
+  (string :pointer)
+  (count :int)
+  (size :pointer))
 
 (defwin32fun ("Thread32First" thread-32-first kernel32) bool
   (snapshot handle)
