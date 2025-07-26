@@ -5957,6 +5957,22 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (src2 hrgn)
   (mode :int))
 
+(defwin32fun ("CreateEllipticRgn" create-elliptic-rgn gdi32) hrgn
+  (left :int)
+  (top :int)
+  (right :int)
+  (bottom :int))
+
+(defwin32fun ("CreateRectRgn" create-rect-rgn gdi32) hrgn
+  (left :int)
+  (top :int)
+  (right :int)
+  (bottom :int))
+
+(defwin32fun ("SelectClipRgn" select-clip-rgn gdi32) :int
+  (hdc hdc)
+  (hrgn hrgn))
+
 (defwin32fun ("CombineTransform" combine-transform gdi32) bool
   (xf-out (:pointer xform))
   (xf1 (:pointer xform))
@@ -6743,6 +6759,9 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (lpv (:pointer :void))
   (file-name lpwstr)
   (size dword))
+
+(defwin32fun ("GetMenu" get-menu user32) hmenu
+  (hwnd hwnd))
 
 (defwin32fun ("GetMenuItemCount" get-menu-item-count user32) :int
   (hmenu hmenu))
