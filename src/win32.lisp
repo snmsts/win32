@@ -6512,6 +6512,11 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (file-time (:pointer filetime))
   (system-time (:pointer systemtime)))
 
+(defwin32fun ("FillRect" fill-rect user32) :int
+  (hdc hdc)
+  (lprc :pointer)
+  (hbr hbrush))
+
 (defwin32fun ("FindStringOrdinal" find-string-ordinal kernel32) :int
   (find-string-ordinal-flags dword)
   (string-source lpcwstr)
@@ -7479,6 +7484,14 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (x :int)
   (y :int)
   (prev-point (:pointer point)))
+
+(defwin32fun ("MoveWindow" move-window user32) bool
+  (hwnd hwnd)
+  (x :int)
+  (y :int)
+  (nwidth :int)
+  (nheight :int)
+  (brepaint bool))
 
 (defwin32fun ("OaBuildVersion" oa-build-version oleaut32) hresult)
 
