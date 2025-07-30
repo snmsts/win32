@@ -7872,6 +7872,10 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (inputs (:pointer input))
   (cbsize :int))
 
+(defwin32fun ("SetMapMode" set-map-mode gdi32) :int
+  (hdc hdc)
+  (fn-map-mode :int))
+
 (defwin32fun ("SendMessageW" send-message user32) lresult
   (hwnd hwnd)
   (msg uint)
