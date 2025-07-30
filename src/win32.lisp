@@ -8138,6 +8138,18 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (cy :int)
   (flags uint))
 
+(defwin32fun ("SetWindowOrgEx" set-window-org-ex gdi32) bool
+  (hdc hdc)
+  (x :int)
+  (y :int)
+  (lp-point (:pointer point)))
+
+(defwin32fun ("SetViewportOrgEx" set-viewport-org-ex gdi32) bool
+  (hdc hdc)
+  (x :int)
+  (y :int)
+  (lp-point (:pointer point)))
+
 (defwin32fun ("SetWindowTextW" set-window-text user32) bool
   (hwnd hwnd)
   (text lpctstr))
