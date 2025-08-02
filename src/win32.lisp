@@ -36,6 +36,9 @@
 (define-foreign-library comdlg32
   (:win32 "comdlg32.dll"))
 
+(define-foreign-library comctl32
+  (:win32 "Comctl32.dll"))
+
 (use-foreign-library version)
 (use-foreign-library kernel32)
 (use-foreign-library user32)
@@ -48,6 +51,7 @@
 (use-foreign-library ole32)
 (use-foreign-library oleaut32)
 (use-foreign-library comdlg32)
+(use-foreign-library comctl32)
 
 (defconstant +win32-string-encoding+
   #+little-endian :ucs-2le
@@ -8719,3 +8723,47 @@ Meant to be used around win32 C preprocessor macros which have to be implemented
   (hwnd hwnd)
   (haccel haccel)
   (msg :pointer))
+
+;; Common Controls (Chapter 57+)
+(defwin32fun ("InitCommonControls" init-common-controls comctl32) :void)
+
+;; Status Bar constants
+(defwin32constant +statusclassname+ "msctls_statusbar32")
+(defwin32constant +sb-settext+ 1025)
+(defwin32constant +sb-settextw+ 1035)
+(defwin32constant +sb-gettext+ 1026)
+(defwin32constant +sb-gettextw+ 1037)
+(defwin32constant +sb-gettextlength+ 1027)
+(defwin32constant +sb-gettextlengthw+ 1036)
+(defwin32constant +sb-setparts+ 1028)
+(defwin32constant +sb-getparts+ 1030)
+(defwin32constant +sb-getborders+ 1031)
+(defwin32constant +sb-setminheight+ 1032)
+(defwin32constant +sb-simple+ 1033)
+(defwin32constant +sb-getrect+ 1034)
+(defwin32constant +sb-issimple+ 1038)
+(defwin32constant +sb-seticon+ 1039)
+(defwin32constant +sb-settiptext+ 1040)
+(defwin32constant +sb-settiptextw+ 1041)
+(defwin32constant +sb-gettiptext+ 1042)
+(defwin32constant +sb-gettiptextw+ 1043)
+(defwin32constant +sb-geticon+ 1044)
+(defwin32constant +sbt-ownerdraw+ 4096)
+(defwin32constant +sbt-noborders+ 256)
+(defwin32constant +sbt-popout+ 512)
+(defwin32constant +sbt-rtlreading+ 1024)
+(defwin32constant +sbt-notabparsing+ 2048)
+(defwin32constant +sbars-sizegrip+ 256)
+(defwin32constant +sbars-tooltips+ 2048)
+(defwin32constant +sbs-sizegrip+ 16)
+(defwin32constant +ccs-top+ 1)
+(defwin32constant +ccs-nomovey+ 2)
+(defwin32constant +ccs-bottom+ 3)
+(defwin32constant +ccs-noresize+ 4)
+(defwin32constant +ccs-noparentalign+ 8)
+(defwin32constant +ccs-adjustable+ 32)
+(defwin32constant +ccs-nodivider+ 64)
+(defwin32constant +ccs-vert+ 128)
+(defwin32constant +ccs-left+ 129)
+(defwin32constant +ccs-right+ 131)
+(defwin32constant +ccs-nomovex+ 130)
